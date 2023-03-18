@@ -1,0 +1,30 @@
+# docker-compose.yml
+version: '3'
+
+networks:
+  LAN:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.1.0/24
+
+services:
+  user1:
+    build: ./lan/user1
+    networks:
+      - LAN
+    tty: true
+    container_name: user1
+  user2:
+    build: ./lan/user2
+    networks:
+      - LAN
+    tty: true
+    container_name: user2
+  intranet:
+    build: ./lan/intranet
+    networks:
+      - LAN
+    tty: true
+    container_name: intranet
