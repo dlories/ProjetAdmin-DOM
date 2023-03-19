@@ -13,18 +13,35 @@ services:
   user1:
     build: ./lan/user1
     networks:
-      - LAN
+      LAN:
+        ipv4_address: 172.20.1.10
     tty: true
     container_name: user1
   user2:
     build: ./lan/user2
     networks:
-      - LAN
+      LAN:
+        ipv4_address: 172.20.1.11
     tty: true
     container_name: user2
   intranet:
     build: ./lan/intranet
     networks:
-      - LAN
+      LAN:
+        ipv4_address: 172.20.1.4
     tty: true
     container_name: intranet
+  resolver:
+    build: ./lan/resolver
+    networks:
+      LAN:
+        ipv4_address: 172.20.1.2
+    tty: true
+    container_name: resolver
+  soa:
+    build: ./lan/soa
+    networks:
+      LAN:
+        ipv4_address: 172.20.1.3
+    tty: true
+    container_name: soa
