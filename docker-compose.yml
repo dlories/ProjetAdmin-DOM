@@ -62,3 +62,14 @@ services:
     container_name: mail
     hostname: mail
     dns: 172.20.1.2
+    ports:
+      - "25:25"
+      - "465:465"
+      - "143:143"
+      - "993:993"
+    environment:
+      - maildomain=woodytoys.lab
+    volumes:
+      - /path_for_postfix_mail_delivery:/var/mail
+      - /path_for_imap_storage:/home
+    restart: always
