@@ -11,7 +11,7 @@ RUN apt install traceroute -y
 RUN apt install links -y
 RUN apt install tcpdump -y
 
-RUN systemctl dovecot start
+#RUN systemctl dovecot start
 RUN postfix start
 
 COPY main.cf /etc/postfix/main.cf
