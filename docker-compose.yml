@@ -8,7 +8,6 @@ networks:
       driver: default
       config:
         - subnet: 172.20.1.0/24
-
 services:
   user1:
     build: ./lan/user1
@@ -17,6 +16,8 @@ services:
         ipv4_address: 172.20.1.10
     tty: true
     container_name: user1
+    hostname: user1
+    dns: 172.20.1.2
   user2:
     build: ./lan/user2
     networks:
@@ -24,6 +25,8 @@ services:
         ipv4_address: 172.20.1.11
     tty: true
     container_name: user2
+    hostname: user2
+    dns: 172.20.1.2
   intranet:
     build: ./lan/intranet
     networks:
@@ -31,6 +34,8 @@ services:
         ipv4_address: 172.20.1.4
     tty: true
     container_name: intranet
+    hostname: intranet
+    dns: 172.20.1.2
   resolver:
     build: ./lan/resolver
     networks:
@@ -38,6 +43,8 @@ services:
         ipv4_address: 172.20.1.2
     tty: true
     container_name: resolver
+    hostname: resolver
+    dns: 172.20.1.2
   soa:
     build: ./lan/soa
     networks:
@@ -45,3 +52,13 @@ services:
         ipv4_address: 172.20.1.3
     tty: true
     container_name: soa
+    hostname: soa
+  mail:
+    build: ./lan/mail
+    networks:
+      LAN:
+        ipv4_address: 172.20.1.5
+    tty: true
+    container_name: mail
+    hostname: mail
+    dns: 172.20.1.2

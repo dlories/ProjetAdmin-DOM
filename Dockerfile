@@ -11,12 +11,9 @@ RUN apt install traceroute -y
 RUN apt install links -y
 RUN apt install tcpdump -y
 
-RUN postfix start
-
 COPY main.cf /etc/postfix/main.cf
 COPY dovecot.conf /etc/dovecot/dovecot.conf
 
 EXPOSE 23 143
 
-ENTRYPOINT ["tail"]
-CMD ["-f","/dev/null"]
+CMD ["postfix", "start"]
