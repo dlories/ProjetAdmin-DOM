@@ -30,3 +30,11 @@ RUN apt install postfix -y
 
 COPY dovecot.conf /etc/dovecot/
 COPY main.cf /etc/postfix/
+
+EXPOSE 25 143 110
+
+RUN postfix start
+RUN dovecot
+
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]

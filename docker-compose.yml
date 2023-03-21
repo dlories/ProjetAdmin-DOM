@@ -64,14 +64,15 @@ services:
     dns: 172.20.1.2
     ports:
       - "25:25"
+      - "110:110"
       - "465:465"
       - "143:143"
       - "993:993"
     environment:
       - maildomain=woodytoys.lab
-    volumes:
-      - /path_for_postfix_mail_delivery:/var/mail
-      - /path_for_imap_storage:/home
+    #volumes:
+    #  - /path_for_postfix_mail_delivery:/var/mail
+    #  - /path_for_imap_storage:/home
     restart: always
   db:
     build: ./lan/db
