@@ -82,6 +82,7 @@ services:
     container_name: db
     volumes:
       - stockagedb:/var/lib/mysql
+      - ./lan/db:/docker-entrypoint-initdb.d
 
 volumes:
   stockagedb:
