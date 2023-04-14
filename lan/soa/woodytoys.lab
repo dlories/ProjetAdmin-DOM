@@ -10,7 +10,7 @@ $TTL 86400
       IN     NS     soa.woodytoys.lab.
 
 
-resolv          IN     A       172.20.1.2
-soa             IN     A       172.20.1.3
-www            IN     A       172.20.1.4
-mail             IN     A       172.20.1.5
+resolv          IN     A       10.0.0.4
+soa             IN     A       10.0.0.5
+www            IN     A       10.0.0.6
+mail             IN     A       10.0.0.7
